@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        #result {
+            font-size: 80px;
+            margin: 20px;
+        }
+
+        input {
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Dice Rolling Game</h1>
+
+    <p>Click the button to roll the dice.</p>
+
+    <div id="result">🎲</div>
+
+    <div>
+        <input type="button" value="Roll Dice"
+        onclick="rollDice()">
+    </div>
+
+    <script>
+
+        function rollDice() {
+
+            let dice = Math.floor(Math.random() * 6) + 1;
+            let result = document.getElementById("result");
+            result.innerHTML = dice;
+            if (dice === 6) {
+                alert("Congratulations! You got 6!");
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
