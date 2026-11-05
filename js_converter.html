@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Converter</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 20px;
+            margin: 20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body name="data">
+
+    <h1>Mass Converter</h1>
+
+    <form action="">
+
+        <div>
+            <input type="number" id="amount"
+            placeholder="Enter mass">
+        </div>
+
+        <div>
+            <select id="from">
+                <option value="kg">Kilograms</option>
+                <option value="g">Grams</option>
+                <option value="mg">Milligrams</option>
+                <option value="lb">Pounds</option>
+                <option value="oz">Ounces</option>
+            </select>
+        </div>
+
+        <div>
+            <select id="to">
+                <option value="kg">Kilograms</option>
+                <option value="g">Grams</option>
+                <option value="mg">Milligrams</option>
+                <option value="lb">Pounds</option>
+                <option value="oz">Ounces</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="button" value="Convert"
+            onclick="convertMass()">
+        </div>
+
+        <div id="result">
+            Result will appear here
+        </div>
+
+    </form>
+
+    <script>
+
+        function convertMass() {
+
+            let amount = Number(document.getElementById("amount").value);
+
+            let from = document.getElementById("from").value;
+
+            let to = document.getElementById("to").value;
+
+            let result = document.getElementById("result");
+            let kg;
+
+            if (from === "kg") {
+                kg = amount;
+            }
+            else if (from === "g") {
+                kg = amount / 1000;
+            }
+            else if (from === "mg") {
+                kg = amount / 1000000;
+            }
+            else if (from === "lb") {
+                kg = amount * 0.45359237;
+            }
+            else if (from === "oz") {
+                kg = amount * 0.0283495231;
+            }
+            let answer;
+
+            if (to === "kg") {
+                answer = kg;
+            }
+            else if (to === "g") {
+                answer = kg * 1000;
+            }
+            else if (to === "mg") {
+                answer = kg * 1000000;
+            }
+            else if (to === "lb") {
+                answer = kg / 0.45359237;
+            }
+            else if (to === "oz") {
+                answer = kg / 0.0283495231;
+            }
+
+            result.innerHTML = amount + " " + from +
+            " = " + answer.toFixed(4) + " " + to;
+
+        }
+
+    </script>
+
+</body>
+</html>
